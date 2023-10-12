@@ -15,6 +15,7 @@ services:
     depends_on:
         - webapp
         - api.orders
+        - api.products
 
   webapp:
     image: webapp:latest
@@ -23,6 +24,7 @@ services:
       - 3000:3000
     depends_on:
       - api.orders
+      - api.products
       - mariadb
     build:
       context: ./webapp
@@ -51,7 +53,27 @@ services:
       - MYSQL_USER=interviewer
       - MYSQL_PASSWORD=changeme
       - MYSQL_HOST=172.17.0.1
-      - MYSQL_PORT=3306
+      - MYSQL_PORT=3307
+    networks:
+      - app_network
+
+  api.products:
+    image: api-products:latest
+    container_name: api-products
+    ports:
+      - 5002:5002
+    build:
+      context: ./api.products
+      dockerfile: Dockerfile
+    depends_on:
+      - mariadb
+    volumes:
+      - ./api.products:/api.products
+    environment:
+      - MYSQL_USER=interviewer
+      - MYSQL_PASSWORD=changeme
+      - MYSQL_HOST=172.17.0.1
+      - MYSQL_PORT=3307
     networks:
       - app_network
   
@@ -59,7 +81,7 @@ services:
     image: mariadb:10.2
     container_name: mariadb
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
       MYSQL_DATABASE: marz
       MYSQL_USER: interviewer

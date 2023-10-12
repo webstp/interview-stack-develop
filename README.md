@@ -2,10 +2,11 @@
 
 ## Application break down
 
-The application is comprised of 4 parts
+The application is comprised of 5 parts
 
-1. webapp -> Frontend for the applicaiton (written in React and Typescript)
-2. api.orders -> Backend for the applicaiton (written in flask)
+1. webapp -> Frontend for the application (written in React and Typescript)
+2. api.orders -> Backend for the application (written in flask)
+2. api.products -> Backend for the application (written in typescript)
 3. nginx -> The proxy for the requests
 4. db -> mariadb
 
@@ -36,7 +37,15 @@ docker build -t webapp:latest .
 To build the docker image for api.orders run the command bellow from the root of the `api.orders` directory
 
 ```Bash
-docker build -t api.orders:latest .
+docker build -t api-orders:latest .
+```
+
+### api.products
+
+To build the docker image for api.orders run the command bellow from the root of the `api.products` directory
+
+```Bash
+docker build -t api-products:latest .
 ```
 
 ### Starting the application
@@ -89,9 +98,17 @@ NOTE: Make sure the api.orders container is running.
 
 You can also install all the dependencies locally and run the tests using the same command that you run inside the docker container from the backend directory. Would recommend setting up a python env under the .venv directory name for this
 
+### Testing api.products
+
+To run the jest tests run the following command at the root of the `api.products` directory
+
+```Bash
+npm run test
+```
+
 ## Your task
 
-You must develop the Products page for this application and create a PUBLIC github repo with the implementaion. There will be 3 steps to this task.
+You must develop the Products page for this application and create a PUBLIC github repo with the implementation. There will be 3 steps to this task.
 
 ### Step 1: Webapp
 
