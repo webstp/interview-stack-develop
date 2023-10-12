@@ -13,7 +13,7 @@ export interface OrderData {
   QA: Order[],
 }
 
-export interface DraggableItemProps extends Order{
+export interface DraggableItemProps extends Order {
     draggableProvided: DraggableProvided;
     removeOrder: (order: Order) => void;
 }
@@ -33,3 +33,17 @@ export interface HeaderLink {
 export interface HeaderProps {
     links: HeaderLink[];
 }
+
+export enum ProductStatus {
+    Active = 'Active',
+    InActive = 'InActive',
+}
+
+export interface Product {
+    ProductID: number;
+    ProductName: string;
+    ProductPhotoURL: string;
+    ProductStatus: ProductStatus;
+}
+
+export type ProductProps = Omit<Product, 'ProductID'>;

@@ -92,7 +92,7 @@ CREATE TABLE `Product` (
 
 LOCK TABLES `Product` WRITE;
 /*!40000 ALTER TABLE `Product` DISABLE KEYS */;
-INSERT INTO `Product` VALUES (1,'Hat','t','Active'),(2,'Shoes','t','Active'),(3,'Pants','t','Active'),(4,'Shirt','t','InActive'),(5,'Coat','t','InActive');
+INSERT INTO `Product` VALUES (1,'Hat','https://picsum.photos/id/669/256','Active'),(2,'Shoes','https://picsum.photos/id/823/256','Active'),(3,'Pants','https://picsum.photos/id/882/256','Active'),(4,'Shirt','https://picsum.photos/id/493/256','InActive'),(5,'Coat','https://picsum.photos/id/912/256','InActive');
 /*!40000 ALTER TABLE `Product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

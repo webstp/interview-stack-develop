@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext } from 'react-beautiful-dnd';
 import DraggableList from "../../components/DraggableList/DraggableList";
 import Spinner from "../../components/Spinner/Spinner";
@@ -129,7 +128,7 @@ const HomePage = () => {
         className="flex flex-row justify-center w-full pt-4 text-3xl font-bold text-white"
         data-testid="error-container"
       >
-        An error occured fetching the data!
+        An error occurred fetching the data!
       </div>
     );
 
